@@ -7,3 +7,5 @@ bcm4331_fix_logs/
 .DS_Store
 *.txt
 .notes/
+*.txt
+.notes/
