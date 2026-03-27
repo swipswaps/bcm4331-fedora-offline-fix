@@ -32,3 +32,10 @@ systemctl start NetworkManager
 sleep 10
 nmcli device wifi rescan || true
 nmcli device wifi list
+
+echo "=== Step 6: Ensuring Persistence (Reboot-Proofing) ==="
+# Blacklist conflicting open-source drivers
+echo -e "blacklist b43\nblacklist bcma\nblacklist ssb" | sudo tee /etc/modprobe.d/bcm4331-blacklist.conf
+# Force-load wl module on boot
+echo "wl" | sudo tee /etc/modules-load.d/wl.conf
+echo "✅ Persistence configured. Offline fix will survive next reboot."
