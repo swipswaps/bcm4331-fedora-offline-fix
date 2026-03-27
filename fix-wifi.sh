@@ -74,3 +74,12 @@ if [[ -n "$IFACE" ]]; then
 else
     echo "❌ Driver loaded but no interface found. Check 'sudo dmesg | grep 4331'."
 fi
+
+echo "=== Step 6: Ensuring Persistence (Reboot-Proofing) ==="
+# Blacklist conflicting open-source drivers
+# Citation: https://wireless.docs.kernel.org/en/users/drivers/b43#Known_issues
+echo -e "blacklist b43\nblacklist bcma\nblacklist ssb" | sudo tee /etc/modprobe.d/bcm4331-blacklist.conf
+
+# Force-load wl module on boot
+echo "wl" | sudo tee /etc/modules-load.d/wl.conf
+echo "✅ Persistence configured. Wi-Fi will load automatically on next boot."
