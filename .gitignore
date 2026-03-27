@@ -3,3 +3,4 @@
 *.bak2
 offline_bundle/
 pre_v36_backup_*/
+*.txt
