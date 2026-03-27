@@ -8,5 +8,5 @@ for f in ucode29_mimo.fw ht0initvals29.fw ht0bsinitvals29.fw; do
     wget -q -O "$REPO_DIR/$f" "$FW_URL/$f"
 done
 echo "=== Downloading Recovery Tools ==="
-dnf download --destdir="$REPO_DIR" --resolve b43-fwcutter wget rfkill
+dnf download --destdir="$REPO_DIR" --resolve b43-fwcutter wget rfkill 2>/dev/null || echo "dnf download skipped (not on Fedora/RHEL)"
 echo "✅ Bundle created in $REPO_DIR"

@@ -1,11 +1,5 @@
-offline_bundle/
-*.rpm
 *.log
-bcm4331_diag_logs/
-bcm4331_fix_logs/
-.env
-.DS_Store
-*.txt
-.notes/
-*.txt
-.notes/
+*.bak
+*.bak2
+offline_bundle/
+pre_v36_backup_*/
