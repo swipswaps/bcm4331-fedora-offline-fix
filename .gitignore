@@ -3,4 +3,7 @@
 *.bak2
 offline_bundle/
 pre_v36_backup_*/
-*.txt
+
+# Ignore temporary artifacts (UUID/Hash named files)
+[0-9]*.txt
+[a-f0-9]*.txt

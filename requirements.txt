@@ -1,6 +1,6 @@
 # Platform: Fedora 43
 # Hardware: Broadcom BCM4331 [14e4:4331]
-# Target Kernel: 6.19.8-200.fc43.x86_64
+# Target Kernel: 6.19.9-200.fc43.x86_64
 # Driver Path: b43 (Open Source)
 packages: b43-fwcutter, wget, NetworkManager, rfkill
 firmware_blobs: ucode29_mimo.fw, ht0initvals29.fw, ht0bsinitvals29.fw
