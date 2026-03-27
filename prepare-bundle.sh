@@ -2,9 +2,11 @@
 set -euo pipefail
 REPO_DIR="./offline_bundle"
 mkdir -p "$REPO_DIR"
-echo "=== Downloading Binaries for BCM4331 (including mokutil) ==="
-dnf download --destdir="$REPO_DIR" --resolve \
-    kernel-6.19.8-200.fc43.x86_64 \
-    kernel-devel-6.19.8-200.fc43.x86_64 \
-    kernel-headers akmod-wl broadcom-wl rpm2cpio cpio mokutil
+FW_URL="https://raw.githubusercontent.com/LibreELEC/wlan-firmware/master/firmware/b43"
+echo "=== Downloading b43 Firmware for Offline Use ==="
+for f in ucode29_mimo.fw ht0initvals29.fw ht0bsinitvals29.fw; do
+    wget -q -O "$REPO_DIR/$f" "$FW_URL/$f"
+done
+echo "=== Downloading Recovery Tools ==="
+dnf download --destdir="$REPO_DIR" --resolve b43-fwcutter wget rfkill
 echo "✅ Bundle created in $REPO_DIR"
