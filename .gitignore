@@ -6,3 +6,4 @@ bcm4331_fix_logs/
 .env
 .DS_Store
 *.txt
+.notes/
